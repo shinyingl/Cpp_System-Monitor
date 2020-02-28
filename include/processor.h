@@ -1,5 +1,6 @@
 #ifndef PROCESSOR_H
 #define PROCESSOR_H
+#include "linux_parser.h"
 
 class Processor {
  public:
@@ -7,6 +8,8 @@ class Processor {
 
   // TODO: Declare any necessary private members
  private:
+   float pre_idle_CpuTime;
+   float pre_total_CpuTime;
 };
 
 #endif
