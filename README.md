@@ -2,7 +2,7 @@
 
 A linux process mananger for linux system similar to "htop". The starter code is from [here](https://github.com/udacity/CppND-System-Monitor-Project-Updated.git). Most of the work is on parsing the linux file system in the proc directory.
 Below is the screen shot of the output on my computer.
-![System_Monitor](images/monitor.png)
+![System_Monitor](images/monitor1.png)
 
 File structure (screenshot from the Udacity's lecture note)
 ![Structure](images/Structure.png)
