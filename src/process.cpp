@@ -21,10 +21,9 @@ Process::Process(int pid) {
 int Process::Pid() { return _pid; }
 
 // TODO: Return this process's CPU utilization
-float Process::CpuUtilization() { //} { return 0; } //Not done
+float Process::CpuUtilization() { 
   long int Hz = sysconf(_SC_CLK_TCK);
   _active_time = LinuxParser::ActiveJiffies(_pid)/Hz;
-  // _active_time = 0;
   _uptime = LinuxParser::UpTime(_pid);
   return _active_time/_uptime;
 }

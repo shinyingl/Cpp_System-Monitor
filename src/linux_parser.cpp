@@ -89,7 +89,7 @@ float LinuxParser::MemoryUtilization() {
 
 // TODO: Read and return the system uptime
 long LinuxParser::UpTime() { 
-  long long_uptime = 0;
+  
   string value;
   string idletime;
   string line;
@@ -99,19 +99,16 @@ long LinuxParser::UpTime() {
     std::getline(stream, line);
     std::istringstream linestream(line);
     while(linestream >> value >> idletime) {
-      std::ofstream myf;
-      myf.open("out.txt");
-      float_uptime = std::stof(value);
-      myf << value << " "<< idletime << " " << float_uptime << "\n";
-      myf.close();
+      // std::ofstream myf;
+      // myf.open("out.txt");
+      float_uptime = std::stof(value); // in seconds
+      // myf << value << " "<< idletime << " " << float_uptime << "\n";
+      // myf.close();
       
     }
   }
   return (long)float_uptime;
 }
-
-
-//https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk65143
 
 // TODO: Read and return the number of jiffies for the system
 long LinuxParser::Jiffies() {//{ return 0; }
@@ -152,7 +149,7 @@ long LinuxParser::ActiveJiffies() { //{ return 0; }
 
     linestream >> key >> value1 >> value2 >> value3 >> value4 >> value5 >> value6 >> value7;
       if (key == "cpu") {
-        //printf("Helooo:  %s %s\n", key, value3);
+        
         systemtime = std::stol(value3);
         irq = std::stol(value6);
         soft_irq = std::stol(value7);
@@ -188,7 +185,7 @@ long LinuxParser::IdleJiffies() {//{ return 0; }
 }
 
 // TODO: Read and return CPU utilization
-vector<string> LinuxParser::CpuUtilization()  { return {}; } // NOT USED?
+vector<string> LinuxParser::CpuUtilization()  { return {}; } // NOT USED
 // {
 //   std::ifstream cpustream(kProcDirectory + kStatFilename);
 //   if (cpustream.is_open()) {
@@ -204,6 +201,7 @@ vector<string> LinuxParser::CpuUtilization()  { return {}; } // NOT USED?
 //   }
 //   return cpu_value;
 // }
+
 
 
 // TODO: Read and return the total number of processes
@@ -353,4 +351,3 @@ long LinuxParser::UpTime(int pid) {//{ return 0; }
   return 0;
 }
 
-//https://unix.stackexchange.com/questions/62154/when-was-a-process-started

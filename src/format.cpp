@@ -12,9 +12,20 @@ string Format::ElapsedTime(long seconds) {
     long HH{seconds/3600};
     long MM{(seconds%3600)/60};
     long SS{(seconds%3600)%60};
-    string HH_str{std::to_string(HH)};
-    string MM_str{std::to_string(MM)};
-    string SS_str{std::to_string(SS)};
+    string HH_str{ZeroPaddedTime(HH)};
+    string MM_str{ZeroPaddedTime(MM)};
+    string SS_str{ZeroPaddedTime(SS)};
     string time{HH_str + ':' + MM_str + ':' + SS_str };
   return time; 
+}
+
+string Format::ZeroPaddedTime(long tt) {
+  if ( tt<10 ) {
+    return "0" + std::to_string(tt);
+  }
+  else {
+    return std::to_string(tt);
+  }
+  
+
 }
